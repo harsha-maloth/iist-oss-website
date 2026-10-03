@@ -1,0 +1,129 @@
+/* metaKGP-style look: black page (grey gradient in light mode), pill nav, big two-line hero, rounded cards.
+   Loaded last, so it overrides the older rules. IIST-OSS keeps its own lime accent. */
+:root{
+  --left:#000;--right:#000;
+  --bg:#000;--surface:rgba(255,255,255,.05);--raised:rgba(255,255,255,.1);
+  --text:#fcfcfc;--muted:rgba(252,252,252,.75);--faint:rgba(252,252,252,.5);
+  --line:rgba(255,255,255,.16);--line-strong:rgba(255,255,255,.4);
+  --accent:#97ff00;--on-accent:#111;--link:#93aff1;
+  --head-bg:transparent;--menu-bg:rgba(0,0,0,.97);
+  --display:'Titillium Web',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --brand:'Titillium Web',system-ui,sans-serif;
+  --mono:'Inconsolata',ui-monospace,Consolas,monospace;
+  --pill:#161616;
+}
+:root[data-theme=light]{
+  --left:#c1c1bf;--right:#ededea;--bg:#ededea;
+  --surface:rgba(255,255,255,.55);--raised:rgba(255,255,255,.8);
+  --text:#393f45;--muted:#2f2f2f;--faint:#5d646b;
+  --line:rgba(0,0,0,.16);--line-strong:rgba(0,0,0,.35);
+  --accent:#2d7a0a;--on-accent:#fffffa;--link:#376cea;--menu-bg:rgba(237,237,234,.98);--pill:#2f2f2f;
+}
+html,body,#root,main{background:var(--bg)}
+:root[data-theme=light],:root[data-theme=light] body{background:linear-gradient(90deg,var(--left),var(--right))}
+main,#root{background:transparent}
+body{font:400 1.05rem/1.55 var(--mono)}
+h1,h2,h3,.btn,.chip,.nav-link,.eyebrow,.stat dt{font-family:var(--display)}
+a:hover{color:#43a488}
+.rails{display:none!important}
+.container{max-width:1100px}
+
+/* header: logo left, pill nav right, not fixed */
+.site-header{position:static;height:auto;background:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.navbar{padding:1.5rem 1rem;border:0;max-width:1280px}
+@media(min-width:640px){.navbar{padding:1.5rem 2.5rem}}
+.logo{font:900 1.6rem var(--brand)}
+.logo:hover b{background:none;color:var(--accent)}
+.nav-desktop{height:auto;align-items:center;gap:.3rem;padding:3px;border:2px solid #ffffff66;border-radius:24px;background:var(--pill);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.nav-link{flex-direction:row;justify-content:center;padding:4px 20px;border-radius:20px;border:1px solid transparent;font:700 1rem var(--display);letter-spacing:0;text-transform:none;color:#ffffff80;transition:background .3s,color .3s}
+.nav-link:hover,.nav-link.active{background:#fff;color:#000}
+.nav-link:hover>span,.nav-link.active>span{background:none;-webkit-background-clip:initial;background-clip:initial;color:#000}
+.nav-link.icon{padding:4px 10px}
+.burger{height:44px}
+.mobile-menu{padding-top:90px}
+.mobile-menu a,.mobile-menu button{text-transform:none;font:700 1.4rem var(--display)}
+.mobile-menu a.active{color:var(--accent)}
+
+/* hero */
+.hero{padding:1rem 0 0}
+.hero-grid{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.hero-text{flex:1;min-width:0}
+.hero-text h1{display:flex;flex-direction:column;text-transform:uppercase;font:900 clamp(2.6rem,6vw,5rem)/1.05 var(--display);margin:0}
+.hero-desc{max-width:46ch;margin:1.5rem 0 0;font:400 1.3rem/1.25 var(--mono);color:var(--muted)}
+.hero-btns{display:flex;flex-direction:column;gap:.5rem;max-width:300px;margin-top:1.75rem}
+.split{display:flex}
+.split a{flex:1;text-align:center;padding:.35rem .75rem;border:2px solid #ffffff66;background:var(--pill);color:#fff;font:700 1rem var(--display);text-decoration:none;transition:background .3s,color .3s}
+.split a:first-child{border-radius:50px 0 0 50px}
+.split a:last-child{border-radius:0 50px 50px 0}
+.split a:hover{background:#fff;color:#2f2f2f}
+.gh-pill{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.35rem 1rem;border-radius:50px;background:var(--accent);color:var(--on-accent);font:700 1rem var(--display);text-decoration:none;transition:background .3s,color .3s}
+.gh-pill:hover{background:#fff;color:#111;text-decoration:none}
+.hero-pic{flex:0 0 38%;max-width:380px;color:#fff;filter:drop-shadow(0 10px 30px rgba(0,0,0,.35))}
+.hero-pic svg{width:100%;height:auto}
+:root[data-theme=light] .hero-pic{color:#2f2f2f}
+@media(max-width:700px){.hero-grid{flex-direction:column-reverse;text-align:left}.hero-pic{flex-basis:auto;width:50%}.hero-btns{max-width:none;width:100%}}
+
+/* stat cards */
+.glance{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;border:0;margin:2.5rem 0 1rem}
+.stat{flex-direction:column-reverse;min-width:170px;padding:.8rem 1.8rem!important;border:2px solid #00000066!important;border-radius:20px;background:var(--accent);color:var(--on-accent);text-align:left;transition:box-shadow .2s}
+.stat:hover{box-shadow:0 2px 10px rgba(0,0,0,.6)}
+.stat dd{font:700 2.4rem/1 var(--display);color:var(--on-accent);background:none;-webkit-background-clip:initial;background-clip:initial}
+.stat dt{color:var(--on-accent);font:400 1rem var(--mono);letter-spacing:0;text-transform:lowercase}
+
+/* headings and sections */
+.sec{border:0;padding:1.5rem 0}
+.sec-title,.page-title{font:900 clamp(2rem,3vw,2.6rem)/1.15 var(--display);text-transform:none;margin:0 0 1rem}
+.page-head{padding:1.5rem 0 0}
+.hero-intro{margin:0;font:400 1.3rem/1.25 var(--mono);color:var(--muted);max-width:60ch}
+.sec-text,.lead{font:400 1.2rem/1.3 var(--mono);color:var(--muted)}
+.page-body{padding:1.5rem 0 4rem}
+.sub-h,.eyebrow{letter-spacing:.1em}
+
+/* buttons, chips, inputs */
+.btn,.chip{border-radius:50px;text-transform:none;letter-spacing:0;font:700 1rem var(--display);border:2px solid #ffffff66;background:var(--pill);color:#fff}
+.btn:hover,.chip:hover:not(:disabled){background:#fff;color:#2f2f2f;border-color:#fff}
+.btn.primary,.chip.on{background:var(--accent);color:var(--on-accent);border-color:transparent}
+.btn.primary:hover{background:#fff;color:#111}
+.btn.danger{background:transparent}
+.arrow-link,.plink{text-transform:none;letter-spacing:0;font-family:var(--display);font-weight:700}
+input:not([type=checkbox]),textarea,select{background:var(--surface);border-radius:8px;border-color:var(--line-strong)}
+.underline-input{background:var(--surface)!important;border:1px solid var(--line-strong)!important;border-radius:50px!important;padding:.5rem 1.1rem!important}
+.dd-btn{border:1px solid var(--line-strong);border-radius:50px;padding:.5rem 1rem;background:var(--pill);color:#fff}
+.dd-menu{background:var(--pill);color:#fff;border-radius:12px}
+
+/* cards */
+.project,.feat,.ev,.row,.card,.empty,.admin-card{background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:2px 2px 10px rgba(0,0,0,.3);padding:1rem}
+.project{border-top:0;padding:1rem;color:var(--text)}
+.project h3,.feat h3,.ev h3{font:700 1.2rem var(--display);text-transform:none}
+.project h3 a{color:#e53c64!important;background:none;-webkit-text-fill-color:initial}
+.ptype{text-transform:none;letter-spacing:0;font:400 .9rem var(--mono)}
+.pgrid{gap:1rem;margin:1.25rem 0}
+.meta>*{border-radius:50px;background:var(--raised);border-color:transparent}
+.feed li,.task-row{border-color:var(--line)}
+.task-row{padding:1rem}
+.task-list{display:grid;gap:1rem}
+.task-list li:last-child .task-row{border-bottom:0}
+.task-row{background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:2px 2px 10px rgba(0,0,0,.3)}
+.task-row h3{font:900 1.4rem var(--display);text-transform:none}
+.task-row:hover h3{background:none;color:var(--accent)}
+.feat-grid{gap:1rem}
+.shot,.photo img{border:0;border-radius:6px}
+.date{border-radius:8px;overflow:hidden}
+.ev-list{gap:1rem}
+.terminal{border-radius:8px;overflow:hidden}
+.step{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:1.25rem;margin-bottom:1rem;box-shadow:2px 2px 10px rgba(0,0,0,.3)}
+.step:last-child{border-bottom:0}
+.note{border-radius:6px}
+
+/* footer: dark bar, centred */
+.site-footer{background:#000;border-top:1px solid rgba(255,255,255,.16);margin-top:3rem;font-family:var(--mono)}
+.site-footer .container{border:0;text-align:center}
+.foot-top{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding-top:1.5rem}
+.foot-top p{margin:0;color:#f5f6f0}
+.foot-top .addr,.foot-bottom p{font-size:.85rem;color:rgba(245,246,240,.6)}
+.social{border:0;border-radius:25%;padding:.6rem}
+.foot-bottom{justify-content:center;margin-top:.5rem}
+.foot-bottom p{text-align:center}
+
+.hero-text .eyebrow{max-width:46ch;font:700 .8rem/1.4 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 1rem}
+.addr-link{color:rgba(245,246,240,.75);font-size:.85rem}

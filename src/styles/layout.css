@@ -1,0 +1,86 @@
+/* Header, mobile menu, page titles, section heads and footer. */
+
+/* ---------- header ---------- */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;height:72px;display:flex;justify-content:center;background:var(--head-bg);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.navbar{width:100%;max-width:1280px;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;border-bottom:1px solid var(--line)}
+@media(min-width:640px){.navbar{padding:0 2.5rem}}
+.logo{display:flex;align-items:center;gap:.75rem;color:var(--text);text-decoration:none;font:600 1.4rem var(--brand)}
+.logo:hover{color:var(--text)}
+.logo .mark{display:flex;width:44px;height:44px;flex:none}
+.logo svg{width:100%;height:100%}
+.logo b{font-weight:600;letter-spacing:.01em;line-height:1}
+.logo:hover b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+
+.nav-desktop{display:none;height:100%;align-items:stretch;list-style:none;margin:0;padding:0;gap:1.75rem}
+.nav-desktop li{margin:0;display:flex}
+@media(min-width:1280px){.nav-desktop{gap:2.5rem}}
+@media(min-width:1024px){.nav-desktop{display:flex}.burger{display:none!important}}
+.nav-link{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.4rem;padding-bottom:1.5rem;font:500 1rem var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--text);text-decoration:none;background:none;border:0;cursor:pointer}
+.nav-link>span,.nav-link>svg{display:inline-flex}
+.nav-link:hover>span,.nav-link.active>span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-link:hover,.nav-link.active{color:var(--accent)}
+.nav-link.icon{padding-left:0;padding-right:0}
+
+.burger{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:8px;height:100%;min-width:44px;padding:0 2px;background:none;border:0;cursor:pointer}
+.burger i{display:block;height:2px;background:var(--text);transform-origin:right;transition:all .3s ease-in-out}
+.burger i:nth-of-type(1){width:32px}
+.burger i:nth-of-type(2){width:16px}
+.burger[aria-expanded=true] i:nth-of-type(1){transform:rotate(-45deg) translateY(-1px)}
+.burger[aria-expanded=true] i:nth-of-type(2){width:32px;transform:rotate(45deg) translateY(1px)}
+
+.mobile-menu{position:fixed;top:0;right:-100%;z-index:40;width:100%;height:100svh;background:var(--menu-bg);padding-top:72px;transition:right .35s ease-in-out;overflow-y:auto;visibility:hidden}
+.mobile-menu.open{right:0;visibility:visible}
+@media(min-width:1024px){.mobile-menu{display:none}}
+.mobile-menu ul{list-style:none;margin:0;padding:2rem;display:flex;flex-direction:column;gap:1.5rem}
+.mobile-menu li{margin:0}
+.mobile-menu a,.mobile-menu button{font:500 1.35rem var(--display);text-transform:uppercase;letter-spacing:.03em;color:var(--text);text-decoration:none;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+.mobile-menu a:hover,.mobile-menu button:hover,.mobile-menu a.active{color:var(--accent)}
+
+/* ---------- page title ---------- */
+.m-header{padding-top:72px}
+.m-header.compact .project-title{height:clamp(110px,18vh,160px)}
+.m-header.compact .hero-title h1{font-size:clamp(1.8rem,5vw,3rem)}
+.project-title{display:grid;width:100%;grid-template-columns:10% 90%;height:clamp(150px,24vh,240px);margin-top:1rem}
+.home .project-title{height:clamp(180px,30vh,300px)}
+@media(min-width:640px){.project-title{grid-template-columns:var(--lcol) 1fr}}
+/* Plain CSS picture: a faint grid with a green glow. No images, no animation. */
+.hero-visual{grid-column:2;grid-row:1;border:1px solid var(--line);background:radial-gradient(circle at 70% 35%,rgba(75,196,68,.28),transparent 60%),#050505}
+.hero-title{grid-column:1/3;grid-row:1;display:flex;align-items:center;pointer-events:none}
+.hero-title h1{pointer-events:auto;display:inline-block;background:#000;color:#fffffad2;padding:0 .5rem;font:500 clamp(2rem,7vw,4rem)/1.1 var(--display);text-transform:uppercase;letter-spacing:.01em;max-width:100%;overflow-wrap:anywhere}
+@media(min-width:640px){.hero-title h1{margin-left:15%}}
+.hero-title h1::after{content:"_"}
+.hero-intro{max-width:62ch;margin:1.5rem 0 0;font-size:1.1rem;color:var(--muted)}
+@media(min-width:640px){.hero-intro{margin-left:var(--lcol)}}
+
+/* ---------- numbered sections ---------- */
+.sections{counter-reset:sec}
+.sec{counter-increment:sec;padding:2.5rem 0;border-top:1px solid var(--line)}
+.split-sec{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:640px){.split-sec{grid-template-columns:var(--lcol) 1fr;gap:0}.split-sec>.side{padding-right:1.25rem}.split-sec>.main-col{padding-left:2.5rem}}
+.side .idx{display:flex;align-items:center;font:700 .85rem var(--mono);letter-spacing:.1em;color:var(--faint)}
+.side .idx::before{content:counter(sec,decimal-leading-zero)}
+.sec-title{font:500 clamp(1.4rem,3.2vw,2rem)/1.2 var(--display);text-transform:uppercase;margin:0 0 1rem}
+.sec-text{font-size:1.05rem;color:var(--muted);max-width:56ch}
+.sub-h{font:700 .85rem var(--display);text-transform:uppercase;letter-spacing:3px;margin:2.5rem 0 1.2rem;color:var(--muted)}
+
+/* ---------- footer (always dark, like Delta) ---------- */
+.site-footer{position:relative;overflow:hidden;width:100%;display:flex;justify-content:center;background:#060606;color:#fffffa;margin-top:2rem}
+.site-footer a{color:#fffffa}
+.site-footer .container{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.13)}
+.foot-top h3{font:700 .85rem var(--display);letter-spacing:.15em;text-transform:uppercase;margin:2.5rem 0 .8rem;color:#fffffa}
+.foot-top p{margin:0;color:rgba(255,255,250,.7)}
+.foot-top .mail{display:inline-block;margin-top:.6rem;font-size:.9rem}
+.foot-bottom{display:flex;flex-direction:column-reverse;align-items:center;justify-content:space-between;gap:1.25rem;padding:1rem 0;margin-top:1.5rem}
+@media(min-width:768px){.foot-bottom{flex-direction:row;gap:0;padding:2rem 0}}
+.foot-bottom p{margin:0;color:rgba(255,255,250,.7);font-size:.9rem;text-align:center}
+@media(min-width:768px){.foot-bottom p{text-align:left}}
+.foot-bottom .credit{margin-top:.4rem;font-size:.8rem;color:rgba(255,255,250,.5)}
+.foot-bottom .credit a{color:rgba(255,255,250,.75)}
+.social{display:flex;align-items:center;justify-content:center;border:1px solid #fffffa;border-radius:50%;padding:1rem;transition:background-color .2s,color .2s}
+.social:hover{background:#fffffa;color:#131313!important}
+.glow{display:none;position:absolute;right:0;bottom:0;width:min(1146px,100%);height:100%;z-index:0;pointer-events:none;overflow:hidden}
+.glow i{position:absolute;border-radius:50%;filter:blur(90px)}
+.glow i:nth-child(1){width:60%;height:70%;right:-18%;bottom:-30%;background:radial-gradient(circle,#00ff94,#1d4c00 70%,transparent);opacity:.55}
+.glow i:nth-child(2){width:38%;height:48%;right:-6%;bottom:-18%;background:radial-gradient(circle,#fea568,#d59f42 55%,transparent);opacity:.45}
+.glow i:nth-child(3){width:30%;height:40%;right:12%;bottom:-24%;background:radial-gradient(circle,#97ff00,transparent 70%);opacity:.3}

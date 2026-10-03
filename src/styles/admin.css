@@ -1,0 +1,30 @@
+/* Admin panel and account pages. */
+
+.wrap h2{font:500 clamp(1.4rem,3.2vw,2rem)/1.2 var(--display);text-transform:uppercase;margin:0 0 1rem}
+.wrap h3{font:500 1.15rem var(--display);margin:0 0 .75rem}
+
+/* Menu on the side on wide screens, a scrolling bar on phones. */
+.admin{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:800px){.admin{grid-template-columns:210px 1fr;gap:2.5rem}}
+.admin-menu{display:flex;gap:.4rem;overflow-x:auto;padding-bottom:.4rem}
+@media(min-width:800px){.admin-menu{flex-direction:column;overflow:visible;padding:0;gap:0;border-top:1px solid var(--line)}}
+.admin-link{display:flex;align-items:center;justify-content:space-between;gap:.75rem;white-space:nowrap;min-height:var(--tap);padding:.4rem .9rem;font:500 .85rem var(--display);text-transform:uppercase;letter-spacing:.12em;color:var(--text);text-decoration:none;border:1px solid var(--line-strong)}
+@media(min-width:800px){.admin-link{border:0;border-bottom:1px solid var(--line);padding:.4rem .2rem}}
+.admin-link:hover{color:var(--accent)}
+.admin-link.on{background:var(--grad);color:#050505;border-color:transparent;font-weight:600}
+@media(min-width:800px){.admin-link.on{background:none;color:var(--accent);box-shadow:inset 3px 0 0 var(--accent);padding-left:.9rem}}
+.badge{min-width:1.5rem;padding:0 .4rem;text-align:center;font:700 .75rem/1.5rem var(--mono);background:var(--err);color:#050505;border-radius:99px}
+.admin-main{min-width:0}
+
+.numbers{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem}
+@media(min-width:760px){.numbers{grid-template-columns:repeat(4,1fr)}}
+.number{display:flex;flex-direction:column-reverse;gap:.2rem;padding:1.2rem;background:var(--surface);border:1px solid var(--line);text-decoration:none;transition:border-color .25s}
+.number:hover{border-color:var(--accent)}
+.number b{font:300 clamp(2rem,5vw,3rem)/1 var(--display);color:var(--text)}
+.number span{font:700 .7rem var(--display);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+
+.toolbar{align-items:center;margin-bottom:1rem}
+.subsection{margin-top:2.5rem}
+.form-card{margin-bottom:.75rem;max-width:700px}
+.danger-zone{margin-top:2.5rem}
+.filters{display:flex;gap:.45rem;flex-wrap:wrap}

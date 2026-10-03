@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" fill="none">
+<rect width="420" height="120" fill="#000"/>
+<g transform="translate(10 10)"><svg width="100" height="100" viewBox="0 0 100 100" fill="none"><path d="M30 28 8 50l22 22M70 28l22 22-22 22" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M57 20 43 80" stroke="#97ff00" stroke-width="9" stroke-linecap="round"/></svg></g>
+<text x="128" y="74" font-family="Titillium Web, Arial, sans-serif" font-weight="900" font-size="54" fill="#fff">IIST<tspan fill="#97ff00">-</tspan>OSS</text>
+</svg>

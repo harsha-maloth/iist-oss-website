@@ -1,0 +1,34 @@
+/* Styles that belong to one page. */
+
+/* Home */
+.hero-copy{margin-top:1.75rem}
+@media(min-width:640px){.hero-copy{margin-left:var(--lcol)}}
+.eyebrow{margin:0 0 .8rem;font:700 .85rem var(--display);text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+.hero-copy .btns{margin-top:1.5rem}
+
+/* Contribute */
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.step{display:grid;grid-template-columns:1fr;gap:.5rem;padding:1.5rem 0;border-top:1px solid var(--line);margin:0;counter-increment:s}
+.step:last-child{border-bottom:1px solid var(--line)}
+@media(min-width:640px){.step{grid-template-columns:var(--lcol) 1fr}.step>div{padding-left:2.5rem}}
+.step::before{content:counter(s,decimal-leading-zero);font:300 clamp(1.8rem,4vw,2.4rem)/1 var(--display);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.step h3{font:500 1.3rem/1.2 var(--display);text-transform:uppercase;margin-bottom:.5rem}
+.step p{color:var(--muted);max-width:62ch}
+.ticks{list-style:none;padding:0}
+.ticks li{padding-left:1.8rem;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;background:var(--grad)}
+
+/* Events */
+.past{margin-top:3rem}
+.past .ev-list{margin-top:1rem}
+details summary{cursor:pointer;min-height:var(--tap);display:flex;align-items:center}
+details>summary h2{font:700 .85rem var(--display);text-transform:uppercase;letter-spacing:3px}
+
+/* About */
+.about{max-width:70ch}
+.about p{color:var(--muted);font-size:1.1rem}
+.about strong{color:var(--text);font-weight:500}
+blockquote{margin:0 0 1.5rem;padding:.2rem 0 .2rem 1.25rem;border-left:2px solid var(--accent);font:300 clamp(1.5rem,3.5vw,2.2rem)/1.35 var(--display);color:var(--text)}
+.photo{margin:2rem 0 0}
+.photo img{width:100%;display:block}
+figcaption{margin-top:.5rem;color:var(--faint);font:400 .75rem var(--mono);text-align:center}
